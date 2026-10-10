@@ -819,7 +819,7 @@ RRF：
 公式：
 
 $$
-RRF(d)=\sum_{r\in R\frac{1}{k+rank_r(d)}
+RRF(d)=\sum_{r\in R\frac{1}{k+rank_r(d)}｝
 $$
 
 其中：
