@@ -491,12 +491,7 @@ $$
 Transformer 使用 Self-Attention：
 
 $$
-Attention(Q,K,V)
-=
-softmax
-\left(
-\frac{QK^T}{\sqrt{d_k}}
-\right)V
+Attention(Q,K,V)=softmax\left(\frac{QK^T}{\sqrt{d_k}}\right)V
 $$
 
 所有 token 可以同时参与计算，因此训练阶段具有更好的并行性。
@@ -690,21 +685,9 @@ BGE 属于专门用于文本表示和检索场景的 Embedding 模型。
 
 BM25：
 
-\[
-score(D,Q)
-=
-\sum_{t\in Q}
-IDF(t)
-\cdot
-\frac{
-f(t,D)(k_1+1)
-}{
-f(t,D)+k_1
-\left(
-1-b+b\frac{|D|}{avgdl}
-\right)
-}
-\]
+$$
+score(D,Q)=\sum_{t\in Q}IDF(t)\cdot\frac{f(t,D)(k_1+1)}{f(t,D)+k_1\left(1-b+b\frac{|D|}{avgdl}\right)}
+$$
 
 其中：
 
@@ -727,10 +710,10 @@ BM25 相比 TF-IDF 做了两个重要改进。
 
 BM25 使用：
 
-\[
+$$
 \frac{f(k_1+1)}
 {f+k_1}
-\]
+$$
 
 实现词频饱和。
 
@@ -740,9 +723,9 @@ BM25 使用：
 
 BM25 通过：
 
-\[
+$$
 1-b+b\frac{|D|}{avgdl}
-\]
+$$
 
 进行长度修正。
 
@@ -832,12 +815,12 @@ RRF：
 
 公式：
 
-\[
+$$
 RRF(d)
 =
 \sum_{r\in R}
 \frac{1}{k+rank_r(d)}
-\]
+$$
 
 其中：
 
@@ -1391,15 +1374,9 @@ Precision@5 = 1/5 = 0.2
 
 # 十六、Recall@K
 
-\[
-Recall@K
-=
-\frac{
-|\text{Relevant}\cap\text{Retrieved}_K|
-}{
-|\text{Relevant}|
-}
-\]
+$$
+Recall@K=\frac{|\text{Relevant}\cap\text{Retrieved}_K|}{|\text{Relevant}|}
+$$
 
 上面的例子：
 
@@ -1460,9 +1437,9 @@ Mean Reciprocal Rank。
 
 单个 Query：
 
-\[
+$$
 RR=\frac{1}{rank}
-\]
+$$
 
 如果：
 
@@ -1472,9 +1449,9 @@ RR=\frac{1}{rank}
 
 那么：
 
-\[
+$$
 RR=1
-\]
+$$
 
 如果：
 
@@ -1484,23 +1461,23 @@ RR=1
 
 那么：
 
-\[
+$$
 RR=\frac13
-\]
+$$
 
 如果没有找到：
 
-\[
+$$
 RR=0
-\]
+$$
 
 最后：
 
-\[
+$$
 MRR=
 \frac1N
 \sum_{i=1}^{N}RR_i
-\]
+$$
 
 ---
 
@@ -2222,12 +2199,12 @@ RAGAS 是否可靠？
 
 必须会：
 
-\[
+$$
 softmax(x_i)
 =
 \frac{e^{x_i}}
 {\sum_j e^{x_j}}
-\]
+$$
 
 并知道为什么需要：
 
@@ -2249,13 +2226,9 @@ exp(x)
 
 语言模型：
 
-\[
-L
-=
--\frac1N
-\sum_i
-\log P(y_i|x_{<i})
-\]
+$$
+L=-\frac1N\sum_i\log P(y_i|x_{<i})
+$$
 
 要理解：
 
@@ -2277,13 +2250,9 @@ loss
 
 # 三十七、手撕 KL Divergence
 
-\[
-D_{KL}(P||Q)
-=
-\sum_x P(x)
-\log
-\frac{P(x)}{Q(x)}
-\]
+$$
+D_{KL}(P||Q)=\sum_x P(x)\log\frac{P(x)}{Q(x)}
+$$
 
 必须知道：
 
@@ -2299,12 +2268,9 @@ KL 不对称。
 
 # 三十八、手撕 Cosine Similarity
 
-\[
-cos(x,y)
-=
-\frac{x\cdot y}
-{||x||||y||}
-\]
+$$
+cos(x,y)=\frac{x\cdot y}{||x||||y||}
+$$
 
 RAG 中：
 
