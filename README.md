@@ -2200,10 +2200,7 @@ RAGAS 是否可靠？
 必须会：
 
 $$
-softmax(x_i)
-=
-\frac{e^{x_i}}
-{\sum_j e^{x_j}}
+softmax(x_i)=\frac{e^{x_i}}{\sum_j e^{x_j}}
 $$
 
 并知道为什么需要：
@@ -2226,8 +2223,8 @@ exp(x)
 
 语言模型：
 
-$$
-L=-\frac1N\sum_i\log P(y_i|x_{<i})
+$$L
+=-\frac1N\sum_i\log P(y_i|x_{<i}
 $$
 
 要理解：
